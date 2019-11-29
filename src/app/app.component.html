@@ -1,8 +1,9 @@
-<header></header>
+<!--caling the propraty form another component and sinigh the $event parametar. This $event is the special parametar whidch stored the value of the data. Allso i call the method that i created in ts file -->
+<header (featureSelected)="onNavigate($event)"></header>
 <div class="container">
-  
-      <app-recipes></app-recipes>
-      <app-shoping-list></app-shoping-list>
+    <!--Crating *nfIf statements for displaying the component only when the condicion is meet-->
+      <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+      <app-shoping-list *ngIf="loadedFeature !== 'recipe'"></app-shoping-list>
       
       
       

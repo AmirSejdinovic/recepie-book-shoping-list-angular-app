@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 //importung model
 import { Recipe } from '../recipe.model';
 
@@ -8,6 +8,8 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
+  //creating the emiter
+  @Output() recipeJeOdabran = new EventEmitter<Recipe>();
 //creating the recipes variable with calling the class from my model after that i manualy call the method and passed it arguments
   recipes: Recipe[] = [
     new Recipe('A test recipe', 'This is the test', 'https://joyfoodsunshine.com/wp-content/uploads/2016/09/easy-pizza-casserole-recipe-4-500x500.jpg'),
@@ -16,6 +18,11 @@ export class RecipesListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  onRecipeSelected(recipe: Recipe){
+    //Updating the emiter
+      this.recipeJeOdabran.emit(recipe);
+
   }
 
 }

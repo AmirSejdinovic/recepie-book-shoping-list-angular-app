@@ -1,6 +1,6 @@
 //Importing the oputput directive and EvetEmitter class from angualr core
 import { Component, Output, EventEmitter } from '@angular/core';
-import { EventEmitter } from 'events';
+
 
 
 @Component({

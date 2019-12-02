@@ -18,6 +18,11 @@ export class ShopingListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  } 
+  //Creating the method
+  onIngredientAdded(ingredient: Ingredient){
+    this.ingredients.push(ingredient);
+
   }
 
 }

@@ -8,6 +8,7 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipesDetailComponent implements OnInit {
   @Input() recipe: Recipe;
+  public isCollapsed = false;
 
   constructor() { }
 

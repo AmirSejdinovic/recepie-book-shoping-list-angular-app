@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 //importung model
 import { Recipe } from '../recipe.model';
+import {RecipeService} from '../recipe.service';
 
 @Component({
   selector: 'app-recipes-list',
@@ -10,14 +11,12 @@ import { Recipe } from '../recipe.model';
 export class RecipesListComponent implements OnInit {
   //creating the emiter
   @Output() recipeJeOdabran = new EventEmitter<Recipe>();
-//creating the recipes variable with calling the class from my model after that i manualy call the method and passed it arguments
-  recipes: Recipe[] = [
-    new Recipe('A test recipe', 'This is the test', 'https://joyfoodsunshine.com/wp-content/uploads/2016/09/easy-pizza-casserole-recipe-4-500x500.jpg'),
-  ];
-
-  constructor() { }
+  recipes: Recipe[];
+   //Usig the ts shortcut for insatntli assignig the poprety with the same name
+  constructor(private RecipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipes = this.RecipeService.getRecipes();
   }
   onRecipeSelected(recipe: Recipe){
     //Updating the emiter

@@ -12,9 +12,14 @@ export class RecipesComponent implements OnInit {
   //Creating the proprety empty with definition of type
     selectedRecipe: Recipe;
 
-  constructor() { }
+  constructor(private RecipeService: RecipeService) { }
 
   ngOnInit() {
+    this.RecipeService.recipeSelected.subscribe(
+      (recipe: Recipe) => {
+        this.selectedRecipe = recipe;
+      }
+    );
   }
  
 
